@@ -1,4 +1,4 @@
-Changelog nicescroll release 3.7.5
+Changelog nicescroll release 3.7.6
 https://nicescroll.areaaperta.com/
 https://github.com/inuyaksa/jquery.nicescroll
 
