@@ -1,14 +1,4 @@
-/* jquery.nicescroll
--- version 3.7.5
--- copyright 2017-07-13 InuYaksa*2017
--- licensed under the MIT
---
--- https://nicescroll.areaaperta.com/
--- https://github.com/inuyaksa/jquery.nicescroll
---
-*/
 
-/* jshint expr: true */
 
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
@@ -72,6 +62,7 @@
   var now = Date.now || function () { return new Date().getTime(); };
 
   var _globaloptions = {
+    doSomethingOnKeyboard: false,
     zindex: "auto",
     cursoropacitymin: 0,
     cursoropacitymax: 1,
@@ -1872,27 +1863,40 @@
             switch (key) {
               case 38:
               case 63233: //safari
-                self.doScrollBy(24 * 3);
-                ret = true;
+                //aqui es arriba alv
+                if(opt.doSomethingOnKeyboard == true){
+          self.doScrollBy(24 * 3);
+                  ret = true;
+                }            
                 break;
               case 40:
               case 63235: //safari
-                self.doScrollBy(-24 * 3);
-                ret = true;
+                //aqui es arriba alv
+                if(opt.doSomethingOnKeyboard == true){
+                  self.doScrollBy(-24 * 3);
+                  ret = true;
+                }
+                
                 break;
               case 37:
               case 63232: //safari
-                if (self.railh) {
-                  (ctrl) ? self.doScrollLeft(0) : self.doScrollLeftBy(24 * 3);
-                  ret = true;
+               if(opt.doSomethingOnKeyboard == true){
+          if (self.railh) {
+                      (ctrl) ? self.doScrollLeft(0) : self.doScrollLeftBy(24 * 3);
+                      ret = true;
+                  }
                 }
+               
                 break;
               case 39:
               case 63234: //safari
-                if (self.railh) {
-                  (ctrl) ? self.doScrollLeft(self.page.maxw) : self.doScrollLeftBy(-24 * 3);
-                  ret = true;
+                if(opt.doSomethingOnKeyboard == true){
+                  if (self.railh) {
+                      (ctrl) ? self.doScrollLeft(self.page.maxw) : self.doScrollLeftBy(-24 * 3);
+                      ret = true;
+                  }
                 }
+                
                 break;
               case 33:
               case 63276: // safari
